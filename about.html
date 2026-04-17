@@ -1,293 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Premium Team - FELICITY RudraXGarg</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leadership | ABHILASHA</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+  
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    :root {
+      --accent: #d4af37; /* Royal Gold */
+      --bg: #0d0d0d;
+      --card-bg: #151515;
+      --border: rgba(212, 175, 55, 0.15);
     }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #0f0f1f;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      overflow-x: hidden;
+      background-color: var(--bg);
+      color: #e0e0e0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 100px 20px;
     }
 
-    /* Animated Neon Background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 25% 25%, #00eaff, transparent 30%), 
-                  radial-gradient(circle at 75% 75%, #ff00ff, transparent 30%), 
-                  radial-gradient(circle at 50% 50%, #ffff00, transparent 30%);
-      animation: neonMove 20s linear infinite;
-      z-index: -1;
-      filter: blur(150px);
-    }
-
-    @keyframes neonMove {
-      0% { transform: translate(0,0); }
-      50% { transform: translate(100px, 50px); }
-      100% { transform: translate(0,0); }
-    }
-
-    /* Company Info */
-    .company-header {
-      text-align: center;
-      margin-bottom: 50px;
-      z-index: 1;
-      position: relative;
-    }
-
-    .company-header h1 {
-      font-size: 48px;
-      color: #00eaff;
-      text-shadow: 0 0 20px #00eaff, 0 0 40px #00eaff;
-      margin-bottom: 15px;
-    }
-
-    .company-header p {
-      font-size: 18px;
-      color: #ccc;
-      max-width: 800px;
+    .container {
+      max-width: 1200px;
       margin: 0 auto;
-      line-height: 1.5;
     }
 
-    /* Swiper Container */
-    .swiper {
-      width: 100%;
-      max-width: 900px;
-      padding: 50px 0;
-      z-index: 1;
-      position: relative;
+    /* Elegant Company Header */
+    .brand-header {
+      text-align: center;
+      margin-bottom: 80px;
     }
 
-    .swiper-slide {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(20px);
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0, 234, 255, 0.3);
+    .brand-header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 3.5rem;
+      letter-spacing: 12px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .brand-header p {
+      color: #666;
+      letter-spacing: 4px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    /* Grid Layout: Perfectly Symmetrical */
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .member-card {
+      background: var(--card-bg);
+      border-bottom: 3px solid var(--border);
       padding: 40px 30px;
       text-align: center;
-      transition: all 0.5s ease;
+      transition: all 0.4s ease;
       position: relative;
     }
 
-    .swiper-slide:hover {
-      transform: scale(1.05);
-      box-shadow: 0 20px 60px rgba(0, 234, 255, 0.7);
+    .member-card:hover {
+      background: #1a1a1a;
+      border-bottom-color: var(--accent);
+      transform: translateY(-10px);
     }
 
-    .team-img {
-      width: 180px;
-      height: 180px;
+    /* Image Styling */
+    .img-frame {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 30px;
+      position: relative;
+      border: 1px solid var(--border);
+      padding: 10px;
+    }
+
+    .img-frame img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      border: 5px solid #00eaff;
-      box-shadow: 0 0 35px #00eaff;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      filter: grayscale(1);
+      transition: 0.5s ease;
     }
 
-    .swiper-slide:hover .team-img {
-      transform: rotate(5deg) scale(1.1);
-      box-shadow: 0 0 60px #00eaff, 0 0 80px #ff00ff;
+    .member-card:hover img {
+      filter: grayscale(0);
+    }
+
+    .member-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .member-card:hover::before {
+      opacity: 1;
     }
 
     .name {
-      font-size: 24px;
-      font-weight: 700;
+      font-family: 'Marcellus', serif;
+      font-size: 1.6rem;
       color: #fff;
-      margin-bottom: 5px;
-      text-shadow: 0 0 10px #00eaff;
+      margin-bottom: 10px;
     }
 
     .role {
-      font-size: 16px;
-      font-weight: 500;
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
       margin-bottom: 15px;
-      color: #00eaff;
+      display: block;
     }
 
-    .about {
-      font-size: 15px;
-      color: #ddd;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-
-    /* Social Icons */
-    .socials a {
-      display: inline-block;
-      margin: 0 8px;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    .socials a img {
-      width: 30px;
-      filter: brightness(0) invert(1);
-    }
-
-    .socials a:hover {
-      transform: scale(1.2);
-      filter: brightness(1.5) invert(0.8);
-    }
-
-    /* Swiper Navigation */
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: #00eaff;
-      transition: 0.3s ease;
-    }
-
-    .swiper-button-next:hover,
-    .swiper-button-prev:hover {
-      color: #fff;
-      text-shadow: 0 0 15px #00eaff, 0 0 30px #ff00ff;
-    }
-
-    .swiper-pagination-bullet {
-      background: #00eaff;
-      opacity: 0.7;
-    }
-
-    .swiper-pagination-bullet-active {
-      background: #fff;
-      width: 12px;
-      height: 12px;
+    .bio {
+      font-size: 0.9rem;
+      color: #777;
+      line-height: 1.6;
+      font-weight: 300;
     }
 
     @media (max-width: 768px) {
-      .swiper-slide {
-        padding: 30px 20px;
-      }
-      .team-img {
-        width: 150px;
-        height: 150px;
-      }
+      .brand-header h1 { font-size: 2.2rem; letter-spacing: 6px; }
+      .leadership-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Company Info -->
-  <div class="company-header">
-    <h1>🌟 Felicity RudraXGarg Digital Marketing 🌟</h1>
-    <p🌐 Unique RudraXGarg is a leading website design and development company dedicated to creating innovative, visually stunning, and highly functional digital experiences. Our team of skilled designers and developers combines creativity, technology, and strategy to craft websites that not only look amazing but also deliver exceptional performance and user engagement. We help businesses establish a strong online presence, enhance brand visibility, and achieve measurable results in the digital world.</p>
-  </div>
-
-  <!-- Swiper -->
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-
-      <!-- Member 1 -->
-      <div class="swiper-slide">
-        <img src="anand.jpg" class="team-img" alt="Anand Shukla - Founder & CEO">
-        <h2 class="name">Anand Shukla</h2>
-        <p class="role">Founder & director</p>
-        <p class="about">Visionary leader with 5+ years in marketing and technology. Anand drives innovation and growth for all our digital projects.</p>
-        <div class="socials">
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
-        </div>
-      </div>
-
-      <!-- Member 2 -->
-      <div class="swiper-slide">
-        <img src="pandey.jpg" class="team-img" alt="Anupam pandey - co-founder">
-        <h2 class="name">anupam pandey</h2>
-        <p class="role">co-founder</p>
-        <p class="about">Creative strategist, leading campaigns and driving engagement through innovative ideas and analytics.</p>
-        <div class="socials">
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
-        </div>
-      </div>
-
-      <!-- Member 3 -->
-      <div class="swiper-slide">
-        <img src="singh.jpg" class="team-img" alt="Arjun Verma - Lead Developer">
-        <h2 class="name">ANAND SINGH</h2>
-        <p class="role">team head</p>
-        <p class="about">Full-stack developer crafting secure and fast web solutions with a passion for modern technology.</p>
-        <div class="socials">
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
-        </div>
-      </div>
-
-      <!-- Member 4 -->
-      <div class="swiper-slide">
-        <img src="niraj.jpg" class="team-img" alt="Priya Singh - UI/UX Designer">
-        <h2 class="name">hardik niraj</h2>
-        <p class="role">seezerx</p>
-        <p class="about">Creating intuitive and visually stunning user experiences with a focus on design excellence.</p>
-        <div class="socials">
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
-        </div>
-      </div>
-
+  <div class="container">
+    <div class="brand-header">
+      <h1>ABHILASHA</h1>
+      <p>The Leadership Collective</p>
     </div>
 
-    <!-- Navigation -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
-  </div>
+    <div class="leadership-grid">
+      <div class="member-card">
+        <div class="img-frame">
+          <img src="anand.jpg" alt="Anand Shukla">
+        </div>
+        <h3 class="name">Anand Shukla</h3>
+        <span class="role">Founder & Director</span>
+        <p class="bio">Visionary architect leading the technical and ecosystem evolution of ABHILASHA.</p>
+      </div>
 
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: 1,  // Single slide view
-      coverflowEffect: {
-        rotate: 20,
-        stretch: 0,
-        depth: 300,
-        modifier: 1,
-        slideShadows: true,
-      },
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      loop: true,
-    });
-  </script>
+      <div class="member-card">
+        <div class="img-frame">
+          <img src="pandey.jpg" alt="Abhilasha">
+        </div>
+        <h3 class="name">ANUPAM PANDEY</h3>
+        <span class="role">Co-Founder</span>
+        <p class="bio">Strategic leader driving organizational growth and core brand partnerships.</p>
+      </div>
+
+      <div class="member-card">
+        <div class="img-frame">
+          <img src="singh.jpg" alt="Anupam Pandey">
+        </div>
+        <h3 class="name">ANAND SINGH</h3>
+        <span class="role">Operations Head</span>
+        <p class="bio">Optimizing workflow and ensuring technical operational excellence.</p>
+      </div>
+
+      <div class="member-card">
+        <div class="img-frame">
+          <img src="aman.jpg" alt="Aman Tiwari">
+        </div>
+        <h3 class="name">Aman Tiwari</h3>
+        <span class="role">Advertisement Head</span>
+        <p class="bio">Directing high-impact marketing and brand visibility across digital channels.</p>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
-
